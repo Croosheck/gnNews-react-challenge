@@ -1,0 +1,96 @@
+@property --gradient-angle {
+	syntax: "<angle>";
+	initial-value: 0deg;
+	inherits: false;
+}
+
+.popup-backdrop {
+	min-width: 100px;
+	min-height: 100vh;
+	min-height: 100dvh;
+	background-color: rgba(0, 0, 0, 0.495);
+	backdrop-filter: blur(3px);
+
+	position: absolute;
+	inset: 0;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	overflow: hidden;
+	z-index: 2;
+}
+.popup {
+	min-width: clamp(30%, 500px, 80%);
+	min-height: clamp(40%, 300px, 60%);
+
+	border-radius: 10px;
+
+	position: relative;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+}
+
+@keyframes rotation {
+	from {
+		--gradient-angle: 0deg;
+	}
+	to {
+		--gradient-angle: 360deg;
+	}
+}
+
+.popup:before,
+.popup:after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: conic-gradient(
+		from var(--gradient-angle),
+		var(--clr-1),
+		var(--clr-2),
+		var(--clr-3),
+		var(--clr-2),
+		var(--clr-1)
+	);
+	border-radius: inherit;
+	animation: rotation 2s linear infinite;
+	filter: blur(2px);
+}
+.popup:before {
+	z-index: -1;
+	background: hsl(0, 0%, 8%);
+	inset: 5px;
+}
+.popup:after {
+	z-index: -2;
+	filter: blur(2rem);
+}
+
+.popup > pre {
+	font-size: clamp(1rem, 3vw, 1.5rem);
+	user-select: none;
+}
+.popup > button {
+	position: absolute;
+	bottom: 0;
+	margin-bottom: 2rem;
+	border: none;
+	padding: 0.5rem 1rem;
+	border-radius: 20px;
+	background: conic-gradient(
+		from -0.5turn at bottom right,
+		deeppink,
+		cyan,
+		rebeccapurple
+	);
+	color: white;
+	text-shadow: 1px 1px 3px rgb(132, 132, 132);
+	cursor: pointer;
+	font-size: 1rem;
+	filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.282));
+}
