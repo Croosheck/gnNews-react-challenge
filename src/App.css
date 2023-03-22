@@ -1,6 +1,7 @@
 .App {
 	--header-size: 60px;
 	--header-background: hsla(0, 0%, 70%, 0.9);
+	--footer-height: 60px;
 
 	position: relative;
 }

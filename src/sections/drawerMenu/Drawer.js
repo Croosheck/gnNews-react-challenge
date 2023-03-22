@@ -145,7 +145,7 @@ function Drawer({ isOpened, onCloseClick, callback }) {
 						<div className="countries-list">
 							{DUMMY_COUNTRIES.map((country, i) => {
 								return (
-									<NavLink to={`/countries/${country.short}`} key={i}>
+									<NavLink to={`/country/${country.short}`} key={i}>
 										<Option
 											countryName={country.name}
 											countryShort={country.short}

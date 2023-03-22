@@ -9,9 +9,7 @@ function Footer() {
 
 	return (
 		<footer className="footer">
-			{countryData.status !== "error" && (
-				<p id="ok">Articles found: {articlesDisplayedTotal}</p>
-			)}
+			<p>Articles found: {articlesDisplayedTotal}</p>
 			{countryData.status === "error" && (
 				<p id="error">Error: {countryData.message}</p>
 			)}

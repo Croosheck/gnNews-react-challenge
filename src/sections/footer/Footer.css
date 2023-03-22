@@ -1,11 +1,16 @@
 .footer {
+	min-height: var(--footer-height);
 	min-width: 100%;
 	background-color: rgba(42, 42, 42, 0.936);
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 
 	position: fixed;
 	bottom: 0;
+}
+footer > * {
+	text-align: center;
 }
 .footer > p {
 	margin-left: 1rem;

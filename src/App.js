@@ -84,7 +84,7 @@ function App() {
 			<Routes>
 				<Route path="/*" element={<Navigate replace to="/main" />} />
 				<Route path="/main" element={<Main />} />
-				<Route path="/countries/" element={<Feed />}>
+				<Route path="/country/" element={<Feed />}>
 					<Route path=":id" element={<Country />} />
 				</Route>
 			</Routes>
