@@ -74,7 +74,7 @@ function App() {
 				callback={() => setIsMenuOpen(false)}
 			/>
 
-			<Header title="BMine" onBurgerClick={toggleDrawerHandler}>
+			<Header title="gnNews" onBurgerClick={toggleDrawerHandler}>
 				<CustomButton onClick={toggleLayoutHandler}>{layoutIcon}</CustomButton>
 				<CustomButton onClick={togglePopupHandler}>
 					{<HiCursorClick size={23} />}

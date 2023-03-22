@@ -35,7 +35,7 @@
 
 /* TITLE */
 .logo {
-	margin-block: 0.5rem;
+	margin-top: 2px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -51,10 +51,10 @@
 .logo:before {
 	content: attr(data-logo);
 	position: absolute;
-	top: 47%;
+	top: 58%;
 	rotate: 180deg;
-	transform: rotateY(180deg) scaleY(0.4) skewX(30deg) translateX(-7px);
-	opacity: 0.15;
+	transform: rotateY(180deg) scaleY(0.4) skewX(30deg) translateX(-9px);
+	opacity: 0.4;
 	text-shadow: 0px 0px 20px white;
 	filter: drop-shadow(2px 2px 5px white) blur(3px);
 }
