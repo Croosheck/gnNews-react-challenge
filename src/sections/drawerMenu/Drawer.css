@@ -34,6 +34,8 @@
 .drawer-lottie-container {
 	position: absolute;
 	z-index: -1;
+	scale: 1.2;
+	top: 20%;
 }
 
 .countries-list {

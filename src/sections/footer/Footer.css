@@ -15,9 +15,16 @@ footer > * {
 .footer > p {
 	margin-left: 1rem;
 }
+
 .footer > p:is(#error) {
-	font-size: 0.9rem;
+	font-size: clamp(10px, 1rem, 14px);
 	max-width: 50%;
 	color: red;
 	text-shadow: 0 0 2px rgba(255, 255, 255, 0.216);
+}
+
+@media (width < 490px) {
+	.footer > p:is(#error) {
+		display: none;
+	}
 }

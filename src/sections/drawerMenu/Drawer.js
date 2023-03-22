@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ImCross } from "react-icons/im";
 
 import Lottie from "react-lottie";
-import * as animationData from "../../assets/lottie/news.json";
+import * as animationData from "../../assets/lottie/news2.json";
 import Option from "./menuOptions/Option";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -137,9 +137,13 @@ function Drawer({ isOpened, onCloseClick, callback }) {
 							className="drawer-lottie-container"
 						>
 							<Lottie
+								speed={0.8}
 								options={lottieOptions}
 								height={500}
 								isClickToPauseDisabled
+								style={{
+									opacity: 0.5,
+								}}
 							/>
 						</motion.div>
 						<div className="countries-list">

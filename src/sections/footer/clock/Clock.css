@@ -4,3 +4,8 @@
 	padding: 0 1rem;
 	gap: 1rem;
 }
+@media (width < 520px) {
+	.clock-container {
+		font-size: 12px;
+	}
+}

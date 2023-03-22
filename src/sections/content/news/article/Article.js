@@ -1,6 +1,6 @@
 import "./Article.css";
 import { formatDate } from "../../../../utils/formatDate";
-import defaultBackground from "../../../../assets/imgs/article/background2.jpg";
+import defaultBackground from "../../../../assets/imgs/article/background2.webp";
 import { useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
 import ArticleModal from "./ArticleModal";

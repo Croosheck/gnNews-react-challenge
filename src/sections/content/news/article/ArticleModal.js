@@ -1,6 +1,6 @@
 import "./ArticleModal.css";
 import Popup from "../../../../components/UI/Popup";
-import Placeholder from "../../../../assets/imgs/article/background1.jpg";
+import Placeholder from "../../../../assets/imgs/article/background1.webp";
 
 function ArticleModal({
 	isOpen,
