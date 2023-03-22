@@ -2,7 +2,7 @@ import { useRef } from "react";
 import "./Popup.css";
 import { AnimatePresence, motion } from "framer-motion";
 
-function Popup({ isOpen = false, onClose, content }) {
+function Popup({ isOpen = false, onClose, content = "", children }) {
 	const constraintsRef = useRef();
 
 	const animatedText = content;
@@ -75,7 +75,7 @@ function Popup({ isOpen = false, onClose, content }) {
 						className="popup"
 						onMouseDown={(e) => e.stopPropagation()}
 					>
-						{animTextHTML}
+						{content ? animTextHTML : children}
 					</motion.div>
 				</motion.div>
 			)}

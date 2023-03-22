@@ -17,6 +17,7 @@ function createInitialState() {
 			articles: [],
 			totalResults: 0,
 		},
+		article: {},
 	};
 }
 function createReducers() {
@@ -27,9 +28,12 @@ function createReducers() {
 		setCountryData: (state, { payload }) => {
 			state.countryData = payload;
 		},
+		setArticle: (state, { payload }) => {
+			state.article = payload;
+		},
 	};
 }
 
-export const { changeLayout, setCountryData } = newsSlice.actions;
+export const { changeLayout, setCountryData, setArticle } = newsSlice.actions;
 
 export default newsSlice.reducer;
