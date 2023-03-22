@@ -4,6 +4,7 @@ export async function getArticlesData(country) {
 	const response = await fetch(
 		`https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${key}`
 	);
+
 	const data = await response.json();
 
 	return data;

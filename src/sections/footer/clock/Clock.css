@@ -1,0 +1,6 @@
+.clock-container {
+	display: flex;
+	max-width: fit-content;
+	padding: 0 1rem;
+	gap: 1rem;
+}

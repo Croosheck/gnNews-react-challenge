@@ -1,72 +1,95 @@
 import "./App.css";
-
-import { Routes, Route, useParams } from "react-router-dom";
+import { LAYOUTS } from "./appConfig";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Main from "./paths/Main";
 import Popup from "./components/UI/Popup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./sections/header/Header";
 import CustomButton from "./components/UI/CustomButton";
 import Drawer from "./sections/drawerMenu/Drawer";
 import Feed from "./sections/content/news/Feed";
 import Country from "./sections/content/news/article/Article";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { changeLayout } from "./redux/slice";
 import { TfiLayoutGrid4Alt, TfiLayoutMenuV } from "react-icons/tfi";
 import { HiCursorClick } from "react-icons/hi";
+import Footer from "./sections/footer/Footer";
+import { toggleLayout } from "./utils/setLocalStorage";
 
 function App() {
 	const [isPopupOpen, setIsPopupOpen] = useState(false);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const [layoutIcon, setlayoutIcon] = useState(<TfiLayoutGrid4Alt size={22} />);
-
-	const { currentLayout } = useSelector((state) => state.newsReducer);
+	const [layoutIcon, setLayoutIcon] = useState();
 
 	const dispatch = useDispatch();
 
-	let { id } = useParams();
+	useEffect(() => {
+		const storedLayout = localStorage.getItem("layout");
+		if (storedLayout) dispatch(changeLayout(storedLayout));
+		else {
+			dispatch(changeLayout("default"));
+			setLayoutIcon(<TfiLayoutMenuV size={23} />);
+		}
+		setLayoutIconHandler(storedLayout);
+	}, []);
 
-	function togglePopup() {
+	function togglePopupHandler() {
 		setIsPopupOpen((prev) => !prev);
 	}
-	function toggleDrawer() {
+	function toggleDrawerHandler() {
 		setIsMenuOpen((prev) => !prev);
 	}
-	function toggleLayout() {
-		if (currentLayout === "default") {
-			dispatch(changeLayout("list"));
-			setlayoutIcon(<TfiLayoutMenuV size={23} />);
-		}
+
+	function setLayoutIconHandler(currentLayout) {
 		if (currentLayout === "list") {
-			dispatch(changeLayout("default"));
-			setlayoutIcon(<TfiLayoutGrid4Alt size={23} />);
+			setLayoutIcon(<TfiLayoutGrid4Alt size={23} />);
 		}
+
+		if (currentLayout === "default") {
+			setLayoutIcon(<TfiLayoutMenuV size={23} />);
+		}
+	}
+
+	function toggleLayoutHandler() {
+		const layout = toggleLayout({
+			data: {
+				layouts: LAYOUTS,
+			},
+		});
+		dispatch(changeLayout(layout));
+		setLayoutIconHandler(layout);
 	}
 
 	return (
 		<div className="App">
 			<Popup
 				isOpen={isPopupOpen}
-				onClose={togglePopup}
+				onClose={togglePopupHandler}
 				content="Here is your popup!"
 			/>
 
-			<Drawer isOpened={isMenuOpen} onCloseClick={toggleDrawer} />
+			<Drawer
+				isOpened={isMenuOpen}
+				onCloseClick={toggleDrawerHandler}
+				callback={() => setIsMenuOpen(false)}
+			/>
 
-			<Header title="BMine" onBurgerClick={toggleDrawer}>
-				<CustomButton onClick={toggleLayout}>{layoutIcon}</CustomButton>
-				<CustomButton onClick={togglePopup}>
+			<Header title="BMine" onBurgerClick={toggleDrawerHandler}>
+				<CustomButton onClick={toggleLayoutHandler}>{layoutIcon}</CustomButton>
+				<CustomButton onClick={togglePopupHandler}>
 					{<HiCursorClick size={23} />}
 				</CustomButton>
 			</Header>
 
 			<Routes>
-				{/* <Route path="/*" element={<Navigate replace to="/main" />} /> */}
+				<Route path="/*" element={<Navigate replace to="/main" />} />
 				<Route path="/main" element={<Main />} />
-				<Route path="/feed" element={<Feed />} />
 				<Route path="/countries/" element={<Feed />}>
 					<Route path=":id" element={<Country />} />
 				</Route>
 			</Routes>
+
+			<Footer />
 		</div>
 	);
 }

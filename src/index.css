@@ -44,6 +44,7 @@ html {
 
 	color: white;
 	background-color: var(--app-background);
+	overflow-x: hidden;
 }
 
 body {

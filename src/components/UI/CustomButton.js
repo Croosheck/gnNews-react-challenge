@@ -1,10 +1,32 @@
 import "./CustomButton.css";
+import { motion } from "framer-motion";
 
 function CustomButton({ children, onClick }) {
+	const buttonVariants = {
+		hidden: {
+			opacity: 0,
+			y: -100,
+		},
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				delay: 0.5,
+				duration: 0.6,
+			},
+		},
+	};
+
 	return (
-		<button className="custom-button" onClick={onClick}>
+		<motion.button
+			variants={buttonVariants}
+			initial="hidden"
+			animate="visible"
+			className="custom-button"
+			onClick={onClick}
+		>
 			<span>{children}</span>
-		</button>
+		</motion.button>
 	);
 }
 

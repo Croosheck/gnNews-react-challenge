@@ -1,6 +1,7 @@
 import "./Header.css";
 import { motion } from "framer-motion";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { NavLink } from "react-router-dom";
 
 function Header({ children, title, onBurgerClick }) {
 	const titleVariants = {
@@ -39,16 +40,19 @@ function Header({ children, title, onBurgerClick }) {
 				initial="hidden"
 				animate="visible"
 			>
-				<GiHamburgerMenu size={20} />
+				<GiHamburgerMenu size={25} />
 			</motion.span>
-			<motion.div
-				variants={titleVariants}
-				initial="hidden"
-				animate="visible"
-				data-logo={title}
-			>
-				<span>{title}</span>
-			</motion.div>
+			<NavLink to="/">
+				<motion.div
+					variants={titleVariants}
+					initial="hidden"
+					animate="visible"
+					data-logo={title}
+					className="logo"
+				>
+					<span>{title}</span>
+				</motion.div>
+			</NavLink>
 			<ul className="navbar-nav">{children}</ul>
 		</nav>
 	);

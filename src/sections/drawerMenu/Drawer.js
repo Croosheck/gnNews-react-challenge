@@ -37,7 +37,7 @@ const DUMMY_COUNTRIES = [
 	},
 ];
 
-function Drawer({ isOpened, onCloseClick }) {
+function Drawer({ isOpened, onCloseClick, callback }) {
 	const dispatch = useDispatch();
 
 	const drawerVariants = {
@@ -71,6 +71,8 @@ function Drawer({ isOpened, onCloseClick }) {
 	};
 
 	async function getArticlesHandler(country) {
+		callback();
+
 		const data = await getArticlesData(country);
 
 		dispatch(
@@ -128,11 +130,10 @@ function Drawer({ isOpened, onCloseClick }) {
 						<div className="countries-list">
 							{DUMMY_COUNTRIES.map((country, i) => {
 								return (
-									<NavLink to={`/countries/${country.short}`}>
+									<NavLink to={`/countries/${country.short}`} key={i}>
 										<Option
 											countryName={country.name}
 											countryShort={country.short}
-											key={i}
 											index={i}
 											onClick={getArticlesHandler.bind(this, country.short)}
 										/>
