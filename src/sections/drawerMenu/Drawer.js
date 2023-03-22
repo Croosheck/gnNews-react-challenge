@@ -9,6 +9,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setCountryData } from "../../redux/slice";
 import { getArticlesData } from "../../utils/getArticlesData";
+import { DUMMY_ARTICLES } from "../../appConfig";
 
 const DUMMY_COUNTRIES = [
 	{
@@ -71,9 +72,23 @@ function Drawer({ isOpened, onCloseClick, callback }) {
 	};
 
 	async function getArticlesHandler(country) {
+		//closes the drawer upon picking the country
 		callback();
 
 		const data = await getArticlesData(country);
+
+		if (data.status === "error") {
+			dispatch(
+				setCountryData({
+					articles: DUMMY_ARTICLES,
+					message: data.message,
+					totalResults: data.totalResults,
+					status: data.status,
+				})
+			);
+
+			return;
+		}
 
 		dispatch(
 			setCountryData({

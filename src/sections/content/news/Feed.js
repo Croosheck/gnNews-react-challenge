@@ -5,74 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getArticlesData } from "../../../utils/getArticlesData";
 import { setCountryData } from "../../../redux/slice";
 import { useEffect } from "react";
-
-const DUMMY_ARTICLES = [
-	{
-		title: "Test Title",
-		publishedAt: 1679453148520,
-		author: "Leeroy Jenkins",
-	},
-	{
-		title: "Test Title",
-		publishedAt: 1679453148520,
-		author: "Leeroy Jenkins",
-	},
-	{
-		title: "Test Title",
-		publishedAt: 1679453148520,
-		author: "Leeroy Jenkins",
-	},
-	{
-		title: "Test Title",
-		publishedAt: 1679453148520,
-		author: "Leeroy Jenkins",
-	},
-	{
-		title: "Test Title",
-		publishedAt: 1679453148520,
-		author: "Leeroy Jenkins",
-	},
-	{
-		title: "Test Title",
-		publishedAt: 1679453148520,
-		author: "Leeroy Jenkins",
-	},
-	{
-		title: "Test Title",
-		publishedAt: 1679453148520,
-		author: "Leeroy Jenkins",
-	},
-	{
-		title: "Test Title",
-		publishedAt: 1679453148520,
-		author: "Leeroy Jenkins",
-	},
-	{
-		title: "Test Title",
-		publishedAt: 1679453148520,
-		author: "Leeroy Jenkins",
-	},
-	{
-		title: "Test Title",
-		publishedAt: 1679453148520,
-		author: "Leeroy Jenkins",
-	},
-	{
-		title: "Test Title",
-		publishedAt: 1679453148520,
-		author: "Leeroy Jenkins",
-	},
-	{
-		title: "Test Title",
-		publishedAt: 1679453148520,
-		author: "Leeroy Jenkins",
-	},
-	{
-		title: "Test Title",
-		publishedAt: 1679453148520,
-		author: "Leeroy Jenkins",
-	},
-];
+import { DUMMY_ARTICLES } from "../../../appConfig";
 
 function Feed() {
 	const { id } = useParams();
