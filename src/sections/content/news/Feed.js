@@ -6,12 +6,18 @@ import { useSelector } from "react-redux";
 function Feed() {
 	const { id } = useParams();
 
-	const { countryData } = useSelector((state) => state.newsReducer);
+	const { countryData, currentLayout } = useSelector(
+		(state) => state.newsReducer
+	);
 
 	return (
-		<div className="articles-feed-container">
+		<div
+			className={`articles-feed-container ${
+				currentLayout === "list" && "articles-feed-container-list"
+			}`}
+		>
 			{countryData.articles.map((article, i) => {
-				return <Article key={i} id={i} />;
+				return <Article key={i} id={i} article={article} />;
 			})}
 		</div>
 	);

@@ -37,7 +37,7 @@
 	align-items: center;
 	color: black;
 	font-family: Pacifico;
-	font-size: calc(var(--header-size) * 0.7);
+	font-size: calc(var(--header-size) * 0.6);
 	text-shadow: 1px 1px 5px rgb(255, 255, 255);
 
 	user-select: none;

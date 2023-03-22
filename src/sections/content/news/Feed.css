@@ -1,3 +1,15 @@
 .articles-feed-container {
-	background-color: aliceblue;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 1rem;
+	padding: 1rem;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.articles-feed-container-list {
+	flex-wrap: unset;
+	flex-direction: column;
 }

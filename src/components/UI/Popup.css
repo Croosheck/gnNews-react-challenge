@@ -5,13 +5,13 @@
 }
 
 .popup-backdrop {
-	min-width: 100px;
+	/* min-width: 100px;
 	min-height: 100vh;
-	min-height: 100dvh;
+	min-height: 100dvh; */
 	background-color: rgba(0, 0, 0, 0.495);
 	backdrop-filter: blur(3px);
 
-	position: absolute;
+	position: fixed;
 	inset: 0;
 
 	display: flex;

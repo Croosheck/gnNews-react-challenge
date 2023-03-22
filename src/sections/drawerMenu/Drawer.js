@@ -8,6 +8,7 @@ import Option from "./menuOptions/Option";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setCountryData } from "../../redux/slice";
+import { getArticlesData } from "../../utils/getArticlesData";
 
 const DUMMY_COUNTRIES = [
 	{
@@ -69,13 +70,8 @@ function Drawer({ isOpened, onCloseClick }) {
 		},
 	};
 
-	async function pickCountryHandler(country) {
-		const key = process.env.REACT_APP_API_KEY;
-
-		const response = await fetch(
-			`https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${key}`
-		);
-		const data = await response.json();
+	async function getArticlesHandler(country) {
+		const data = await getArticlesData(country);
 
 		dispatch(
 			setCountryData({
@@ -83,8 +79,6 @@ function Drawer({ isOpened, onCloseClick }) {
 				totalResults: data.totalResults,
 			})
 		);
-
-		console.log(data);
 	}
 
 	return (
@@ -140,7 +134,7 @@ function Drawer({ isOpened, onCloseClick }) {
 											countryShort={country.short}
 											key={i}
 											index={i}
-											onClick={pickCountryHandler.bind(this, country.short)}
+											onClick={getArticlesHandler.bind(this, country.short)}
 										/>
 									</NavLink>
 								);
