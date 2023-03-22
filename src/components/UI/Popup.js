@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import "./Popup.css";
 import { AnimatePresence, motion } from "framer-motion";
-import { ReactPropTypes } from "react";
 
 function Popup({ isOpen = false, onClose, content }) {
 	const constraintsRef = useRef();
@@ -21,7 +20,7 @@ function Popup({ isOpen = false, onClose, content }) {
 					transition: {
 						delay: 0.5 + 0.03 * i,
 						type: "spring",
-						stiffness: 100,
+						stiffness: 150,
 						mass: 0.5,
 					},
 				}}

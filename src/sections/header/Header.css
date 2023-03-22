@@ -1,12 +1,6 @@
-/* nav */
 .navbar {
-	background-color: hsl(0, 0%, 90%);
-	/* background: linear-gradient(
-		135deg,
-		hsl(0, 0%, 100%),
-		rgb(169, 169, 169) 100%
-	); */
-	height: var(--nav-size);
+	background-color: var(--header-background);
+	height: var(--header-size);
 	width: 100%;
 	padding: 0 2rem;
 
@@ -17,7 +11,21 @@
 	position: sticky;
 	top: 0;
 	box-sizing: border-box;
-	z-index: 99;
+	z-index: 2;
+}
+
+.menu-burger {
+	max-height: min-content;
+	max-width: fit-content;
+	position: absolute;
+	inset: 0;
+	margin-block: auto;
+	margin-left: 1rem;
+	cursor: pointer;
+	transition: ease-in 0.1s;
+}
+.menu-burger:hover {
+	filter: drop-shadow(0 0 5px hsla(0, 0%, 100%, 0.3));
 }
 
 /* TITLE */
@@ -28,9 +36,8 @@
 	justify-content: center;
 	align-items: center;
 	color: black;
-	/* font-family: Lobster; */
 	font-family: Pacifico;
-	font-size: calc(var(--nav-size) * 0.7);
+	font-size: calc(var(--header-size) * 0.7);
 	text-shadow: 1px 1px 5px rgb(255, 255, 255);
 
 	user-select: none;

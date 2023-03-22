@@ -1,7 +1,8 @@
 import "./Header.css";
 import { motion } from "framer-motion";
+import { GiHamburgerMenu } from "react-icons/gi";
 
-function Header({ children, title }) {
+function Header({ children, title, onBurgerClick }) {
 	const titleVariants = {
 		hidden: {
 			opacity: 0,
@@ -11,14 +12,35 @@ function Header({ children, title }) {
 			opacity: 1,
 			x: 0,
 			transition: {
-				duration: 1,
+				duration: 0.8,
 				delay: 0.2,
+			},
+		},
+	};
+	const burgerVariants = {
+		hidden: {
+			opacity: 0,
+		},
+		visible: {
+			opacity: 1,
+			transition: {
+				duration: 0.3,
+				delay: 1,
 			},
 		},
 	};
 
 	return (
 		<nav className="navbar">
+			<motion.span
+				className="menu-burger"
+				onClick={onBurgerClick}
+				variants={burgerVariants}
+				initial="hidden"
+				animate="visible"
+			>
+				<GiHamburgerMenu size={20} />
+			</motion.span>
 			<motion.div
 				variants={titleVariants}
 				initial="hidden"

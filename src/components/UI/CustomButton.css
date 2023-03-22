@@ -1,0 +1,40 @@
+.custom-button {
+	border: none;
+	padding: 1rem 1.5rem;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-weight: 600;
+	background-color: hsl(215, 100%, 94%);
+	user-select: none;
+
+	position: relative;
+}
+
+/* TITLE */
+.custom-button > span {
+	position: relative;
+	z-index: 3;
+	color: hsl(0, 0%, 24%);
+	transition: ease-in 0.2s;
+}
+.custom-button:hover span {
+	color: white;
+	text-shadow: 0px 0px 5px hsla(0, 0%, 0%, 0.581);
+}
+
+.custom-button:after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	top: 100%;
+	z-index: 2;
+	background-color: hsl(225, 100%, 83%);
+	border-radius: inherit;
+	transition: ease-in 0.2s;
+}
+.custom-button:hover:after {
+	top: 0;
+}
+
+.custom-button:hover {
+}

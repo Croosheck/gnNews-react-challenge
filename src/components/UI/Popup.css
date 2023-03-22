@@ -19,7 +19,7 @@
 	align-items: center;
 
 	overflow: hidden;
-	z-index: 2;
+	z-index: 99;
 }
 .popup {
 	min-width: clamp(30%, 500px, 80%);
@@ -33,6 +33,9 @@
 	justify-content: center;
 	align-items: center;
 	color: white;
+
+	/* overflow-x: hidden; */
+	/* overflow-y: auto; */
 }
 
 @keyframes rotation {
@@ -59,7 +62,7 @@
 	);
 	border-radius: inherit;
 	animation: rotation 2s linear infinite;
-	filter: blur(2px);
+	/* filter: blur(2px); */
 }
 .popup:before {
 	z-index: -1;

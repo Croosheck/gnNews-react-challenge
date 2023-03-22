@@ -13,6 +13,10 @@ export const newsSlice = createSlice({
 function createInitialState() {
 	return {
 		currentLayout: "default",
+		countryData: {
+			articles: [],
+			totalResults: 0,
+		},
 	};
 }
 function createReducers() {
@@ -20,9 +24,12 @@ function createReducers() {
 		changeLayout: (state, { payload }) => {
 			state.currentLayout = payload;
 		},
+		setCountryData: (state, { payload }) => {
+			state.countryData = payload;
+		},
 	};
 }
 
-export const { changeLayout } = newsSlice.actions;
+export const { changeLayout, setCountryData } = newsSlice.actions;
 
 export default newsSlice.reducer;

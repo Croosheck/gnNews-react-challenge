@@ -3,6 +3,6 @@ import newsSlice from "./slice";
 
 export const store = configureStore({
 	reducer: {
-		restaurantReducer: newsSlice,
+		newsReducer: newsSlice,
 	},
 });
