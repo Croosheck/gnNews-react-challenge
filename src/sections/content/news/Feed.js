@@ -80,6 +80,19 @@ function Feed() {
 
 	async function showArticlesHandler() {
 		const data = await getArticlesData(id);
+
+		if (data.status === "error") {
+			dispatch(
+				setCountryData({
+					articles: DUMMY_ARTICLES,
+					message: data.message,
+					status: data.status,
+				})
+			);
+
+			return;
+		}
+
 		dispatch(
 			setCountryData({
 				articles: data.articles,
@@ -104,10 +117,6 @@ function Feed() {
 				currentLayout === "list" ? "articles-feed-container-list" : ""
 			}`}
 		>
-			{/* HAS TO BE CHANGED FOR PRODUCTION (newsapi.org's rule) */}
-			{/* {DUMMY_ARTICLES.map((article, i) => {
-				return <Article key={i} id={i} article={article} />;
-			})} */}
 			{countryData.articles?.map((article, i) => {
 				return <Article key={i} id={i} article={article} />;
 			})}

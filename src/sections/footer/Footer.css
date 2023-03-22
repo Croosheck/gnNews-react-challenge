@@ -10,3 +10,9 @@
 .footer > p {
 	margin-left: 1rem;
 }
+.footer > p:is(#error) {
+	font-size: 0.9rem;
+	max-width: 50%;
+	color: red;
+	text-shadow: 0 0 2px rgba(255, 255, 255, 0.216);
+}
