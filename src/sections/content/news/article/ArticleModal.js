@@ -16,7 +16,11 @@ function ArticleModal({
 	return (
 		<Popup isOpen={isOpen} onClose={onClose}>
 			<div className="article-modal">
-				<img src={data.urlToImage} alt="Article" className="article-photo" />
+				<img
+					src={data.urlToImage || Placeholder}
+					alt="Article"
+					className="article-photo"
+				/>
 				<div className="article-content">
 					<p id="title">{data.title}</p>
 					{data.description && <p id="description">{data.description}</p>}
