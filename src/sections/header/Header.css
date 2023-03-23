@@ -35,14 +35,13 @@
 
 /* TITLE */
 .logo {
-	margin-top: 2px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	color: rgb(255, 255, 255);
 	font-family: Pacifico;
-	font-size: calc(var(--header-size) * 0.6);
-	text-shadow: 1px 1px 5px rgb(255, 255, 255);
+	font-size: calc(var(--header-size) * 0.65);
+	text-shadow: 1px 1px 3px rgb(255, 255, 255);
 
 	user-select: none;
 	position: relative;
@@ -54,9 +53,9 @@
 	top: 58%;
 	rotate: 180deg;
 	transform: rotateY(180deg) scaleY(0.4) skewX(30deg) translateX(-9px);
-	opacity: 0.4;
+	opacity: 0.3;
 	text-shadow: 0px 0px 20px white;
-	filter: drop-shadow(2px 2px 5px white) blur(3px);
+	filter: drop-shadow(2px 2px 5px white) blur(4px);
 }
 
 /* ul */
