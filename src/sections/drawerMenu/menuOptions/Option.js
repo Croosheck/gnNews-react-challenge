@@ -11,7 +11,7 @@ function Option({ countryName = "", countryShort = "", onClick, index }) {
 				opacity: 1,
 				transition: {
 					duration: 0.8,
-					delay: 0.1 * (index + 1),
+					delay: 0.1 * (index + 1.2),
 				},
 			}}
 			className="option-container"

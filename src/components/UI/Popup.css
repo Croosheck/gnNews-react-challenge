@@ -97,7 +97,7 @@
 	line-height: 22px;
 	letter-spacing: 0.3px;
 	font-weight: 500;
-	font-size: 1.1rem;
+	font-size: clamp(12px, 1.1rem, 14px);
 }
 
 .text-container:after {
@@ -123,14 +123,21 @@
 	background-image: url("../../assets/imgs/popup/cat2.png");
 	bottom: 0;
 	left: 70%;
-	top: 150%;
+	top: 180%;
 	transform: rotate(25deg);
 }
-@media (width < 600px) {
+@media (420px <= width < 570px) {
+	.text-container[data-option="bad"]:after {
+		left: 50%;
+		top: 130%;
+	}
+}
+@media (width < 420px) {
 	.text-container[data-option="bad"]:after {
 		bottom: 0;
 		left: 30%;
-		top: 80%;
+		top: 40%;
+		scale: 1;
 		transform: rotate(25deg);
 	}
 }

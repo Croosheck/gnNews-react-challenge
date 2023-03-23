@@ -6,9 +6,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import ArticleModal from "./ArticleModal";
 import { useState } from "react";
 
-function Article({ id, article, totalResults }) {
-	const { currentLayout } = useSelector((state) => state.newsReducer);
+function Article({ article, index = 1 }) {
 	const [openArticle, setOpenArticle] = useState(false);
+	const { currentLayout } = useSelector((state) => state.newsReducer);
 
 	let background = article.urlToImage;
 	if (!article.urlToImage || currentLayout === "list")
@@ -22,6 +22,7 @@ function Article({ id, article, totalResults }) {
 			opacity: 1,
 			transition: {
 				duration: 1,
+				delay: 0.06 * (index + 1),
 			},
 		},
 		exit: {
@@ -32,6 +33,7 @@ function Article({ id, article, totalResults }) {
 		},
 	};
 
+	//modal handler
 	function toggleArticleHandler() {
 		setOpenArticle((prev) => !prev);
 	}
@@ -43,7 +45,7 @@ function Article({ id, article, totalResults }) {
 				data={article}
 				onClose={toggleArticleHandler}
 			/>
-			<AnimatePresence>
+			<AnimatePresence key={currentLayout}>
 				<motion.div
 					className={`article-container ${
 						currentLayout === "list" && "article-container-list"

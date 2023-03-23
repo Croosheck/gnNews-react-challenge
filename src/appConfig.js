@@ -1,67 +1,67 @@
 export const LAYOUTS = ["default", "list"];
 export const DUMMY_ARTICLES = [
 	{
-		title: "Test Title",
+		title: "Test Title 1",
 		publishedAt: 1679453148520,
 		author: "Leeroy Jenkins",
 	},
 	{
-		title: "Test Title",
+		title: "Test Title 2",
 		publishedAt: 1679453148520,
 		author: "Leeroy Jenkins",
 	},
 	{
-		title: "Test Title",
+		title: "Test Title 3",
 		publishedAt: 1679453148520,
 		author: "Leeroy Jenkins",
 	},
 	{
-		title: "Test Title",
+		title: "Test Title 4",
 		publishedAt: 1679453148520,
 		author: "Leeroy Jenkins",
 	},
 	{
-		title: "Test Title",
+		title: "Test Title 5",
 		publishedAt: 1679453148520,
 		author: "Leeroy Jenkins",
 	},
 	{
-		title: "Test Title",
+		title: "Test Title 6",
 		publishedAt: 1679453148520,
 		author: "Leeroy Jenkins",
 	},
 	{
-		title: "Test Title",
+		title: "Test Title 7",
 		publishedAt: 1679453148520,
 		author: "Leeroy Jenkins",
 	},
 	{
-		title: "Test Title",
+		title: "Test Title 8",
 		publishedAt: 1679453148520,
 		author: "Leeroy Jenkins",
 	},
 	{
-		title: "Test Title",
+		title: "Test Title 9",
 		publishedAt: 1679453148520,
 		author: "Leeroy Jenkins",
 	},
 	{
-		title: "Test Title",
+		title: "Test Title 10",
 		publishedAt: 1679453148520,
 		author: "Leeroy Jenkins",
 	},
 	{
-		title: "Test Title",
+		title: "Test Title 11",
 		publishedAt: 1679453148520,
 		author: "Leeroy Jenkins",
 	},
 	{
-		title: "Test Title",
+		title: "Test Title 12",
 		publishedAt: 1679453148520,
 		author: "Leeroy Jenkins",
 	},
 	{
-		title: "Test Title",
+		title: "Test Title 13",
 		publishedAt: 1679453148520,
 		author: "Leeroy Jenkins",
 	},
