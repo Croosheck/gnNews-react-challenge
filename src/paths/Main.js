@@ -1,6 +1,6 @@
 import "./Main.css";
 import Lottie from "react-lottie";
-import * as animationData from "../assets/lottie/main-globe.json";
+import animationData from "../assets/lottie/main-globe.json";
 import { motion } from "framer-motion";
 
 function Main({ callback }) {
@@ -11,6 +11,13 @@ function Main({ callback }) {
 		rendererSettings: {
 			preserveAspectRatio: "xMidYMid slice",
 		},
+		renderer: "canvas",
+		lazyLoad: true,
+		acceleration: true,
+		clearCanvas: false,
+		progressiveLoad: true,
+		maxCacheFrames: 10,
+		scaleMode: "noScale",
 	};
 
 	const titleVariants = {
@@ -76,11 +83,18 @@ function Main({ callback }) {
 				className="main-lottie-globe"
 			>
 				<Lottie
-					speed={0.4}
+					speed={0.3}
 					options={lottieOptions}
 					isClickToPauseDisabled
 					style={{
-						opacity: 0.1,
+						opacity: 0.025,
+						position: "absolute",
+						inset: 0,
+						margin: "auto",
+						width: "auto",
+						maxWidth: 700,
+						height: "auto",
+						maxHeight: 700,
 					}}
 				/>
 			</motion.div>

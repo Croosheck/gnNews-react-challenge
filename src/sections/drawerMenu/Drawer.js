@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ImCross } from "react-icons/im";
 
 import Lottie from "react-lottie";
-import * as animationData from "../../assets/lottie/news2.json";
+import * as animationData from "../../assets/lottie/news-nodots.json";
 import Option from "./menuOptions/Option";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -69,6 +69,12 @@ function Drawer({ isOpened, onCloseClick, callback }) {
 		rendererSettings: {
 			preserveAspectRatio: "xMidYMid slice",
 		},
+		renderer: "canvas",
+		lazyLoad: true,
+		acceleration: true,
+		clearCanvas: false,
+		progressiveLoad: true,
+		maxCacheFrames: 10,
 	};
 
 	async function getArticlesHandler(country) {
@@ -137,12 +143,14 @@ function Drawer({ isOpened, onCloseClick, callback }) {
 							className="drawer-lottie-container"
 						>
 							<Lottie
-								speed={0.8}
+								speed={0.4}
 								options={lottieOptions}
 								height={500}
 								isClickToPauseDisabled
 								style={{
-									opacity: 0.5,
+									opacity: 0.2,
+									maxWidth: 500,
+									maxHeight: 500,
 								}}
 							/>
 						</motion.div>

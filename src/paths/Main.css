@@ -1,6 +1,7 @@
 .main {
 	position: relative;
 	height: calc(100dvh - var(--header-size) - var(--footer-height));
+	height: calc(100vh - var(--header-size) - var(--footer-height));
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -27,7 +28,4 @@
 
 .main-lottie-globe {
 	width: fit-content;
-	position: absolute;
-	inset: 0;
-	margin: auto auto;
 }
