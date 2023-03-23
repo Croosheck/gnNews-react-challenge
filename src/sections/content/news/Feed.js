@@ -34,8 +34,6 @@ function Feed() {
 					totalResults: data.totalResults,
 				})
 			);
-
-			// Trigger animation on content change
 		}
 
 		if (id) {
