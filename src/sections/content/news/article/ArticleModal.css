@@ -10,7 +10,6 @@
 }
 .article-photo {
 	width: clamp(150px, 60vw, 350px);
-	max-height: 200px;
 	border-radius: 5px;
 	border: 1px solid white;
 }

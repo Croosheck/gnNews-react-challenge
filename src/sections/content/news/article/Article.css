@@ -61,11 +61,17 @@
 	position: absolute;
 	inset: 0;
 }
+.list-layout-hover {
+	transition: 0.2s ease-in-out;
+}
 
 @media (width > 755px) {
-	.article-container:hover .info-container {
+	.article-container:hover .card-layout-hover {
 		opacity: 0;
 		scale: 1.1;
+	}
+	.article-container:hover .list-layout-hover {
+		scale: 1.02;
 	}
 }
 

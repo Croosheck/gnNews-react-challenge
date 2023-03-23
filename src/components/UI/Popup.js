@@ -1,37 +1,21 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Popup.css";
 import { AnimatePresence, motion } from "framer-motion";
+import { POPUP_PROS_CONS } from "../../appConfig";
 
 function Popup({ isOpen = false, onClose, content = "", children }) {
+	const [popupContent, setPopupContent] = useState();
+	const [option, setOption] = useState();
 	const constraintsRef = useRef();
 
-	const animatedText = content;
-	const textArray = animatedText.split("");
+	useEffect(() => {
+		if (!content) return;
 
-	const animTextHTML = textArray.map((letter, i) => {
-		const direction = i % 2 === 0 ? -1 : 1;
+		setPopupContent(POPUP_PROS_CONS.default);
+		setOption();
+	}, [isOpen]);
 
-		return (
-			<motion.pre
-				initial={{ y: 100 * direction, opacity: 0 }}
-				animate={{
-					y: 0,
-					opacity: 1,
-					transition: {
-						delay: 0.5 + 0.03 * i,
-						type: "spring",
-						stiffness: 150,
-						mass: 0.5,
-					},
-				}}
-				key={i}
-			>
-				{letter}
-			</motion.pre>
-		);
-	});
-
-	const popup = {
+	const popupVariants = {
 		hidden: { opacity: 0, y: 1000 },
 		visible: {
 			opacity: 1,
@@ -53,6 +37,39 @@ function Popup({ isOpen = false, onClose, content = "", children }) {
 		},
 	};
 
+	const textContentVariants = {
+		hidden: {
+			y: 100,
+			opacity: 0,
+		},
+		visible: {
+			y: 0,
+			opacity: 1,
+			transition: {
+				duration: 1,
+			},
+		},
+		visibleDefault: {
+			y: 0,
+			opacity: 1,
+			transition: {
+				duration: 1.2,
+				delay: 0.5,
+			},
+		},
+		exit: {
+			y: -100,
+			opacity: 0,
+		},
+	};
+
+	function popupContentHandler(type) {
+		setOption(type);
+
+		if (type === "bad") setPopupContent(POPUP_PROS_CONS.cons.content);
+		if (type === "good") setPopupContent(POPUP_PROS_CONS.pros.content);
+	}
+
 	return (
 		<AnimatePresence>
 			{isOpen && (
@@ -71,11 +88,78 @@ function Popup({ isOpen = false, onClose, content = "", children }) {
 						drag
 						dragElastic={0.1}
 						dragSnapToOrigin
-						variants={popup}
+						variants={popupVariants}
 						className="popup"
 						onMouseDown={(e) => e.stopPropagation()}
 					>
-						{content ? animTextHTML : children}
+						<AnimatePresence>
+							<div className="content-container">
+								{content ? (
+									<>
+										{/* Necessary for the animation transitions to work */}
+										{option === "bad" && (
+											<motion.div
+												variants={textContentVariants}
+												initial="hidden"
+												animate="visible"
+												exit="exit"
+												className="text-container"
+												data-option="bad"
+											>
+												<h4>{popupContent}</h4>
+											</motion.div>
+										)}
+										{option === "good" && (
+											<motion.div
+												variants={textContentVariants}
+												initial="hidden"
+												animate="visible"
+												exit="exit"
+												className="text-container"
+												data-option="good"
+											>
+												<h4>{popupContent}</h4>
+											</motion.div>
+										)}
+										{!option && (
+											<motion.div
+												variants={textContentVariants}
+												initial="hidden"
+												animate="visibleDefault"
+												exit="exit"
+												className="text-container"
+											>
+												<h4>{popupContent}</h4>
+											</motion.div>
+										)}
+									</>
+								) : (
+									children
+								)}
+							</div>
+						</AnimatePresence>
+						{content && (
+							<div className="popup-buttons">
+								<button
+									id="bad"
+									className={`popup-option-button ${
+										option === "bad" && "button-active"
+									}`}
+									onClick={popupContentHandler.bind(this, "bad")}
+								>
+									😥
+								</button>
+								<button
+									id="good"
+									className={`popup-option-button ${
+										option === "good" && "button-active"
+									}`}
+									onClick={popupContentHandler.bind(this, "good")}
+								>
+									😃
+								</button>
+							</div>
+						)}
 					</motion.div>
 				</motion.div>
 			)}

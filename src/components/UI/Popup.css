@@ -24,6 +24,8 @@
 .popup {
 	min-width: clamp(30%, 500px, 80%);
 	min-height: clamp(40%, 300px, 60%);
+	max-height: 90dvh;
+	overflow: hidden;
 
 	border-radius: 10px;
 
@@ -74,17 +76,77 @@
 	filter: blur(2rem);
 }
 
-.popup > pre {
-	font-size: clamp(1rem, 3vw, 1.5rem);
-	user-select: none;
+.content-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 40vw;
+	flex-wrap: wrap;
+	padding-inline: 2rem;
 }
-.popup > button {
+.text-container {
+	position: absolute;
+	top: 10%;
+	max-width: 85%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.content-container > .text-container > h4 {
+	text-align: center;
+	line-height: 22px;
+	letter-spacing: 0.3px;
+	font-weight: 500;
+	font-size: 1.1rem;
+}
+
+.text-container:after {
+	content: "";
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+	scale: 1.2;
+	position: absolute;
+	margin: auto auto;
+	z-index: -1;
+	opacity: 0.4;
+}
+.text-container[data-option="good"]:after {
+	background-image: url("../../assets/imgs/popup/cat.jfif");
+	bottom: 0;
+	left: 0;
+	top: 20%;
+	transform: rotate(-25deg);
+}
+.text-container[data-option="bad"]:after {
+	background-image: url("../../assets/imgs/popup/cat2.png");
+	bottom: 0;
+	left: 70%;
+	top: 150%;
+	transform: rotate(25deg);
+}
+@media (width < 600px) {
+	.text-container[data-option="bad"]:after {
+		bottom: 0;
+		left: 30%;
+		top: 80%;
+		transform: rotate(25deg);
+	}
+}
+
+/* BUTTONS */
+.popup-buttons {
 	position: absolute;
 	bottom: 0;
 	margin-bottom: 2rem;
+	display: flex;
+	gap: 2rem;
+}
+.popup-option-button {
+	border-radius: 10px;
 	border: none;
-	padding: 0.5rem 1rem;
-	border-radius: 20px;
+	padding: 0.5rem 2rem;
 	background: conic-gradient(
 		from -0.5turn at bottom right,
 		deeppink,
@@ -96,4 +158,21 @@
 	cursor: pointer;
 	font-size: 1rem;
 	filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.282));
+	transition: ease-in-out 0.15s;
+	opacity: 0.5;
+}
+.button-active {
+	opacity: 1;
+}
+
+.popup-option-button:is(#bad) {
+	background: conic-gradient(
+		from -0.5turn at bottom right,
+		deeppink,
+		rgb(255, 140, 122),
+		rebeccapurple
+	);
+}
+.popup-option-button:hover {
+	opacity: 1;
 }

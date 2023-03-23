@@ -58,7 +58,13 @@ function Article({ id, article, totalResults }) {
 					exit="exit"
 					onClick={toggleArticleHandler}
 				>
-					<div className="info-container">
+					<div
+						className={`info-container ${
+							currentLayout === "default"
+								? "card-layout-hover"
+								: "list-layout-hover"
+						}`}
+					>
 						<span className="article--title">{article.title}</span>
 						<span className="article--publish-date">
 							Published at: {formatDate(article.publishedAt)}
