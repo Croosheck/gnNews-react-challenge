@@ -13,6 +13,32 @@ function Main({ callback }) {
 		},
 	};
 
+	const titleVariants = {
+		hidden: {
+			opacity: 0,
+			y: -20,
+		},
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				delay: 0.5,
+				duration: 1,
+			},
+		},
+	};
+	const buttonVariants = {
+		hidden: {
+			opacity: 0,
+		},
+		visible: {
+			opacity: 1,
+			transition: {
+				delay: 1.5,
+				duration: 1,
+			},
+		},
+	};
 	const lottieVariants = {
 		hidden: {
 			opacity: 0,
@@ -20,7 +46,7 @@ function Main({ callback }) {
 		visible: {
 			opacity: 1,
 			transition: {
-				delay: 0.8,
+				delay: 2,
 				duration: 2,
 			},
 		},
@@ -32,8 +58,17 @@ function Main({ callback }) {
 
 	return (
 		<div className="main">
-			<h1>We bring the news, you bring the coffee.</h1>
-			<button onClick={exploreHandler}>Explore</button>
+			<motion.h1 variants={titleVariants} initial="hidden" animate="visible">
+				We bring the news, you bring the coffee.
+			</motion.h1>
+			<motion.button
+				variants={buttonVariants}
+				initial="hidden"
+				animate="visible"
+				onClick={exploreHandler}
+			>
+				Explore
+			</motion.button>
 			<motion.div
 				variants={lottieVariants}
 				initial="hidden"
