@@ -1,6 +1,7 @@
 import "./ArticleModal.css";
 import Popup from "../../../../components/UI/Popup";
 import Placeholder from "../../../../assets/imgs/article/background1.webp";
+import { memo } from "react";
 
 function ArticleModal({
 	isOpen,
@@ -34,4 +35,4 @@ function ArticleModal({
 	);
 }
 
-export default ArticleModal;
+export default memo(ArticleModal);

@@ -1,5 +1,6 @@
 import "./Header.css";
 import { motion } from "framer-motion";
+import { memo } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
 
@@ -58,4 +59,4 @@ function Header({ children, title, onBurgerClick }) {
 	);
 }
 
-export default Header;
+export default memo(Header);

@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { setCountryData } from "../../redux/slice";
 import { getArticlesData } from "../../utils/getArticlesData";
 import { DUMMY_ARTICLES } from "../../appConfig";
+import { memo } from "react";
 
 const DUMMY_COUNTRIES = [
 	{
@@ -175,4 +176,4 @@ function Drawer({ isOpened, onCloseClick, callback }) {
 	);
 }
 
-export default Drawer;
+export default memo(Drawer);

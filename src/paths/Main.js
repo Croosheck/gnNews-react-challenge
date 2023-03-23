@@ -2,6 +2,7 @@ import "./Main.css";
 import Lottie from "react-lottie";
 import animationData from "../assets/lottie/main-globe.json";
 import { motion } from "framer-motion";
+import { memo } from "react";
 
 function Main({ callback }) {
 	const lottieOptions = {
@@ -102,4 +103,4 @@ function Main({ callback }) {
 	);
 }
 
-export default Main;
+export default memo(Main);

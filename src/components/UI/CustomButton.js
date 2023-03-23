@@ -1,3 +1,4 @@
+import { memo } from "react";
 import "./CustomButton.css";
 import { motion } from "framer-motion";
 
@@ -30,4 +31,4 @@ function CustomButton({ children, onClick }) {
 	);
 }
 
-export default CustomButton;
+export default memo(CustomButton);

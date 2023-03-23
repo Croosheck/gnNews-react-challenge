@@ -4,7 +4,7 @@ import defaultBackground from "../../../../assets/imgs/article/background2.webp"
 import { useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
 import ArticleModal from "./ArticleModal";
-import { useState } from "react";
+import { memo, useState } from "react";
 
 function Article({ article, index = 1 }) {
 	const [openArticle, setOpenArticle] = useState(false);
@@ -79,4 +79,4 @@ function Article({ article, index = 1 }) {
 	);
 }
 
-export default Article;
+export default memo(Article);

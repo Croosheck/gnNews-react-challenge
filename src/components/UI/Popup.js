@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import "./Popup.css";
 import { AnimatePresence, motion } from "framer-motion";
 import { POPUP_PROS_CONS } from "../../appConfig";
@@ -167,4 +167,4 @@ function Popup({ isOpen = false, onClose, content = "", children }) {
 	);
 }
 
-export default Popup;
+export default memo(Popup);

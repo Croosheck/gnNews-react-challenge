@@ -4,7 +4,7 @@ import Article from "./article/Article";
 import { useDispatch, useSelector } from "react-redux";
 import { getArticlesData } from "../../../utils/getArticlesData";
 import { setCountryData } from "../../../redux/slice";
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
 import { DUMMY_ARTICLES } from "../../../appConfig";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -64,4 +64,4 @@ function Feed() {
 	);
 }
 
-export default Feed;
+export default memo(Feed);

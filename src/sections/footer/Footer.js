@@ -1,6 +1,7 @@
 import "./Footer.css";
 import { useSelector } from "react-redux";
 import Clock from "./clock/Clock";
+import { memo } from "react";
 
 function Footer() {
 	const { countryData } = useSelector((state) => state.newsReducer);
@@ -18,4 +19,4 @@ function Footer() {
 	);
 }
 
-export default Footer;
+export default memo(Footer);
