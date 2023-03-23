@@ -2,7 +2,7 @@ import { memo } from "react";
 import "./CustomButton.css";
 import { motion } from "framer-motion";
 
-function CustomButton({ children, onClick }) {
+function CustomButton({ children, onClick, style }) {
 	const buttonVariants = {
 		hidden: {
 			opacity: 0,
@@ -25,6 +25,7 @@ function CustomButton({ children, onClick }) {
 			animate="visible"
 			className="custom-button"
 			onClick={onClick}
+			style={style}
 		>
 			<span>{children}</span>
 		</motion.button>

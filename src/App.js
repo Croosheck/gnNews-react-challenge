@@ -20,6 +20,7 @@ function App() {
 	const [isPopupOpen, setIsPopupOpen] = useState(false);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [layoutIcon, setLayoutIcon] = useState();
+	const [logo, setLogo] = useState("gnNews");
 
 	const dispatch = useDispatch();
 
@@ -60,6 +61,11 @@ function App() {
 		setLayoutIconHandler(layout);
 	}
 
+	function changeLogoHandler() {
+		const newLogo = prompt("Type something short!");
+		setLogo(newLogo);
+	}
+
 	return (
 		<div className="App">
 			<Popup
@@ -74,7 +80,10 @@ function App() {
 				callback={() => setIsMenuOpen(false)}
 			/>
 
-			<Header title="gnNews" onBurgerClick={toggleDrawerHandler}>
+			<Header title={logo} onBurgerClick={toggleDrawerHandler}>
+				<CustomButton onClick={changeLogoHandler} style={{ width: "30%" }}>
+					LOGO
+				</CustomButton>
 				<CustomButton onClick={toggleLayoutHandler}>{layoutIcon}</CustomButton>
 				<CustomButton onClick={togglePopupHandler}>
 					{<HiCursorClick size={23} />}
