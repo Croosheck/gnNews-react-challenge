@@ -2,9 +2,13 @@ import "./Header.css";
 import { motion } from "framer-motion";
 import { memo } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { setCountryData } from "../../redux/slice";
 
 function Header({ children, title, onBurgerClick }) {
+	const dispatch = useDispatch();
+
 	const titleVariants = {
 		hidden: {
 			opacity: 0,
@@ -32,6 +36,16 @@ function Header({ children, title, onBurgerClick }) {
 		},
 	};
 
+	//upon the logo being clicked, the articles data is cleared
+	function resetArticlesHandler() {
+		dispatch(
+			setCountryData({
+				articles: [],
+				totalResults: 0,
+			})
+		);
+	}
+
 	return (
 		<nav className="navbar">
 			<motion.span
@@ -43,7 +57,7 @@ function Header({ children, title, onBurgerClick }) {
 			>
 				<GiHamburgerMenu size={25} />
 			</motion.span>
-			<NavLink to="/">
+			<NavLink to="/" onClick={resetArticlesHandler}>
 				<motion.div
 					variants={titleVariants}
 					initial="hidden"

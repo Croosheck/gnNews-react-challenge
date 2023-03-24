@@ -26,7 +26,12 @@
 }
 
 :root {
-	--app-background: hsl(0, 0%, 10%);
+	--app-background: hsl(0, 0%, 8%);
+	--app-background-gradient: linear-gradient(
+		180deg,
+		hsl(0, 0%, 8%) 10%,
+		hsl(0, 0%, 5%) 80%
+	);
 
 	--clr-1: hsl(264, 87%, 76%);
 	--clr-2: hsl(349, 100%, 74%);
@@ -44,6 +49,7 @@ html {
 
 	color: white;
 	background-color: var(--app-background);
+	background: var(--app-background-gradient);
 	overflow-x: hidden;
 }
 

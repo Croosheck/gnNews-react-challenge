@@ -2,6 +2,7 @@
 	--header-size: 60px;
 	--header-background: var(--app-background);
 	--footer-height: 60px;
+	--footer-background: hsl(0, 0%, 5%);
 
 	position: relative;
 }

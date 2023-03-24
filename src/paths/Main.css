@@ -15,7 +15,7 @@
 .main > button {
 	padding: 0.7rem 1.4rem;
 	border: none;
-	background-color: hsla(0, 0%, 0%, 0.2);
+	background-color: hsla(0, 0%, 0%, 0.4);
 	color: white;
 	font-size: 1rem;
 	cursor: pointer;
@@ -23,7 +23,7 @@
 	transition: ease-in-out 0.3s;
 }
 .main > button:hover {
-	background-color: hsla(0, 0%, 0%, 0.4);
+	background-color: hsla(0, 0%, 0%, 0.8);
 }
 
 .main-lottie-globe {

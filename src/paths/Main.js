@@ -89,7 +89,7 @@ function Main({ callback }) {
 					options={lottieOptions}
 					isClickToPauseDisabled
 					style={{
-						opacity: 0.025,
+						opacity: 0.03,
 						position: "absolute",
 						inset: 0,
 						margin: "auto",

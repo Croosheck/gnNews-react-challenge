@@ -43,6 +43,7 @@
 	font-size: calc(var(--header-size) * 0.5);
 	text-shadow: 1px 1px 3px rgb(255, 255, 255);
 	margin-top: 3px;
+	filter: blur(0.5px);
 
 	user-select: none;
 	position: relative;
@@ -60,7 +61,7 @@
 	top: 58%;
 	rotate: 180deg;
 	transform: rotateY(180deg) scaleY(0.4) skewX(30deg) translateX(-9px);
-	opacity: 0.3;
+	opacity: 0.15;
 	text-shadow: 0px 0px 20px white;
 	filter: drop-shadow(2px 2px 5px white) blur(4px);
 }

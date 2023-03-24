@@ -13,10 +13,10 @@ function Popup({ isOpen = false, onClose, content = "", children, testid }) {
 
 		setPopupContent(POPUP_PROS_CONS.default);
 		setOption();
-	}, [isOpen]);
+	}, [isOpen, content]);
 
 	const popupVariants = {
-		hidden: { opacity: 0, y: 1000 },
+		hidden: { opacity: 0, y: 100 },
 		visible: {
 			opacity: 1,
 			y: 0,
@@ -25,11 +25,12 @@ function Popup({ isOpen = false, onClose, content = "", children, testid }) {
 				type: "spring",
 				stiffness: 50,
 				mass: 0.8,
+				delay: 0.2,
 			},
 		},
 		exit: {
 			opacity: 0,
-			y: -500,
+			y: -100,
 			transition: {
 				delay: 0,
 				duration: 0.5,
@@ -40,6 +41,9 @@ function Popup({ isOpen = false, onClose, content = "", children, testid }) {
 	const textContentVariants = {
 		hidden: {
 			y: 100,
+			opacity: 0,
+		},
+		hiddenDefault: {
 			opacity: 0,
 		},
 		visible: {
@@ -125,7 +129,7 @@ function Popup({ isOpen = false, onClose, content = "", children, testid }) {
 										{!option && (
 											<motion.div
 												variants={textContentVariants}
-												initial="hidden"
+												initial="hiddenDefault"
 												animate="visibleDefault"
 												exit="exit"
 												className="text-container"

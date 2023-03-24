@@ -32,7 +32,7 @@ function App() {
 			setLayoutIcon(<TfiLayoutMenuV size={23} />);
 		}
 		setLayoutIconHandler(storedLayout);
-	}, []);
+	}, [dispatch]);
 
 	function togglePopupHandler() {
 		setIsPopupOpen((prev) => !prev);

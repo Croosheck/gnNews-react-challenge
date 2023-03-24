@@ -144,7 +144,7 @@ function Drawer({ isOpened, onCloseClick, callback }) {
 							className="drawer-lottie-container"
 						>
 							<Lottie
-								speed={0.4}
+								speed={0.2}
 								options={lottieOptions}
 								height={500}
 								isClickToPauseDisabled
