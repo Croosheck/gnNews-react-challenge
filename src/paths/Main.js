@@ -94,9 +94,9 @@ function Main({ callback }) {
 						inset: 0,
 						margin: "auto",
 						width: "auto",
-						maxWidth: 700,
+						maxWidth: 500,
 						height: "auto",
-						maxHeight: 700,
+						maxHeight: 500,
 					}}
 				/>
 			</motion.div>
