@@ -41,4 +41,9 @@ npm start
 - [prettier](https://www.npmjs.com/package/prettier)
 - [framer-motion](https://www.npmjs.com/package/framer-motion)
 - [jest-canvas-mock](https://www.npmjs.com/package/jest-canvas-mock)
-#
+
+## TESTY
+**Wewnątrz głównego folderu z projektem:**
+```
+npm run test
+```
