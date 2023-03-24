@@ -47,3 +47,10 @@ npm start
 ```
 npm run test
 ```
+
+## API
+Dla poprawnego działania API ([newsapi](https://newsapi.org/)), w ścieżce podanej poniżej, pod stałą *key* podstaw swój wygenerowany na stronie API klucz.
+
+Plik, który należy zmodyfikować -> [CLICK](https://github.com/Croosheck/gnNews-react-challenge/blob/master/src/utils/getArticlesData.js)
+### WAŻNE
+Darmowy klucz, który API zapewnia, działa wyłącznie w trybie developera na serwerze lokalnym (localhost). 
