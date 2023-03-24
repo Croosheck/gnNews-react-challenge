@@ -82,6 +82,7 @@ function Main({ callback }) {
 				initial="hidden"
 				animate="visible"
 				className="main-lottie-globe"
+				data-testid="lottie-main"
 			>
 				<Lottie
 					speed={0.3}

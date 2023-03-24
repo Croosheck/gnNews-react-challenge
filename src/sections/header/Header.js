@@ -51,7 +51,7 @@ function Header({ children, title, onBurgerClick }) {
 					data-logo={title}
 					className="logo"
 				>
-					<span>{title}</span>
+					<span role="generic">{title}</span>
 				</motion.div>
 			</NavLink>
 			<ul className="navbar-nav">{children}</ul>

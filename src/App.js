@@ -63,6 +63,7 @@ function App() {
 
 	function changeLogoHandler() {
 		const newLogo = prompt("Type something short!");
+		if (newLogo === null) return;
 		setLogo(newLogo);
 	}
 
@@ -71,7 +72,8 @@ function App() {
 			<Popup
 				isOpen={isPopupOpen}
 				onClose={togglePopupHandler}
-				content="Here is your popup!"
+				content={true}
+				testid="header-popup"
 			/>
 
 			<Drawer
@@ -81,11 +83,17 @@ function App() {
 			/>
 
 			<Header title={logo} onBurgerClick={toggleDrawerHandler}>
-				<CustomButton onClick={changeLogoHandler} style={{ width: "30%" }}>
+				<CustomButton
+					onClick={changeLogoHandler}
+					style={{
+						display: window.innerWidth < 500 && "none",
+						width: "30%",
+					}}
+				>
 					LOGO
 				</CustomButton>
 				<CustomButton onClick={toggleLayoutHandler}>{layoutIcon}</CustomButton>
-				<CustomButton onClick={togglePopupHandler}>
+				<CustomButton onClick={togglePopupHandler} testid="header-popup-button">
 					{<HiCursorClick size={23} />}
 				</CustomButton>
 			</Header>

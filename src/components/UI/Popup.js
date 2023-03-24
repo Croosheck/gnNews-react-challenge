@@ -3,7 +3,7 @@ import "./Popup.css";
 import { AnimatePresence, motion } from "framer-motion";
 import { POPUP_PROS_CONS } from "../../appConfig";
 
-function Popup({ isOpen = false, onClose, content = "", children }) {
+function Popup({ isOpen = false, onClose, content = "", children, testid }) {
 	const [popupContent, setPopupContent] = useState();
 	const [option, setOption] = useState();
 	const constraintsRef = useRef();
@@ -80,6 +80,7 @@ function Popup({ isOpen = false, onClose, content = "", children }) {
 					className="popup-backdrop"
 					onMouseDown={onClose}
 					ref={constraintsRef}
+					data-testid={testid}
 				>
 					<motion.div
 						initial="hidden"
