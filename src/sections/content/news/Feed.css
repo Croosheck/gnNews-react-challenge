@@ -14,3 +14,10 @@
 	flex-wrap: unset;
 	flex-direction: column;
 }
+
+#country-failed {
+	text-align: center;
+	position: fixed;
+	top: 40%;
+	margin-inline: 1rem;
+}
