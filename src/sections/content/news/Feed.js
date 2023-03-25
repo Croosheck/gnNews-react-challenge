@@ -9,7 +9,10 @@ import { DUMMY_ARTICLES } from "../../../appConfig";
 import { AnimatePresence, motion } from "framer-motion";
 
 function Feed() {
-	const [failedCountry, setFailedCountry] = useState();
+	const [requestFailed, setRequestFailed] = useState({
+		isFailed: false,
+		country: "",
+	});
 	const { id } = useParams();
 	const dispatch = useDispatch();
 
@@ -23,7 +26,10 @@ function Feed() {
 						`https://restcountries.com/v3.1/alpha/${code}`
 					);
 					const countryData = await response.json();
-					setFailedCountry(countryData[0].name.common);
+					setRequestFailed({
+						isFailed: true,
+						country: countryData[0]?.name.common,
+					});
 				}
 
 				getCountryName(id);
@@ -58,7 +64,7 @@ function Feed() {
 		(state) => state.newsReducer
 	);
 
-	if (countryData.totalResults === 0) {
+	if (requestFailed.isFailed) {
 		return (
 			<AnimatePresence>
 				<motion.div
@@ -73,7 +79,7 @@ function Feed() {
 					{
 						<h2 id="country-failed">
 							No articles has been found{" "}
-							{!!failedCountry && `for ${failedCountry}`}
+							{requestFailed.country && `for ${requestFailed.country}`}
 						</h2>
 					}
 				</motion.div>
