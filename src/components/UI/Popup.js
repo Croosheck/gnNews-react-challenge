@@ -32,8 +32,7 @@ function Popup({ isOpen = false, onClose, content = "", children, testid }) {
 			opacity: 0,
 			y: -100,
 			transition: {
-				delay: 0,
-				duration: 0.5,
+				duration: 0.1,
 			},
 		},
 	};
