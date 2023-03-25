@@ -95,9 +95,10 @@
 .content-container > .text-container > h4 {
 	text-align: center;
 	line-height: 22px;
-	letter-spacing: 0.3px;
+	letter-spacing: 0.2px;
 	font-weight: 500;
-	font-size: clamp(12px, 1.1rem, 14px);
+	font-size: clamp(min(12px, 15px), 1.8vw, 1.2rem);
+	margin-block: 2px;
 }
 
 .text-container:after {
@@ -126,16 +127,16 @@
 	top: 180%;
 	transform: rotate(25deg);
 }
-@media (420px <= width < 570px) {
+@media (350px <= width < 460px) {
 	.text-container[data-option="bad"]:after {
 		left: 50%;
 		top: 130%;
 	}
 }
-@media (width < 420px) {
+@media (width < 350px) {
 	.text-container[data-option="bad"]:after {
 		bottom: 0;
-		left: 30%;
+		left: 20%;
 		top: 40%;
 		scale: 1;
 		transform: rotate(25deg);
