@@ -7,6 +7,7 @@ import { setCountryData } from "../../../redux/slice";
 import { memo, useEffect, useState } from "react";
 import { DUMMY_ARTICLES } from "../../../appConfig";
 import { AnimatePresence, motion } from "framer-motion";
+import { getFailedCountryName } from "./reusable";
 
 function Feed() {
 	const [requestFailed, setRequestFailed] = useState({
@@ -20,20 +21,8 @@ function Feed() {
 		async function showArticlesHandler() {
 			const data = await getArticlesData(id);
 
-			if (data.totalResults === 0) {
-				async function getCountryName(code) {
-					const response = await fetch(
-						`https://restcountries.com/v3.1/alpha/${code}`
-					);
-					const countryData = await response.json();
-					setRequestFailed({
-						isFailed: true,
-						country: countryData[0]?.name.common,
-					});
-				}
-
-				getCountryName(id);
-			}
+			//gets the country's name, for which the articles data hasn't been able to fetch
+			if (data.totalResults === 0) getFailedCountryName(id, setRequestFailed);
 
 			if (data.status === "error") {
 				dispatch(
