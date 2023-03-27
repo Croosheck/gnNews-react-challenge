@@ -76,10 +76,10 @@ function Article({ article, index = 1, lang }) {
 					>
 						<span className="article--title">{article.title}</span>
 						<span className="article--publish-date">
-							{authorLabel[lang]}: {formatDate(article.publishedAt)}
+							{dateLabel[lang]}: {formatDate(article.publishedAt)}
 						</span>
 						<span className="article--source">
-							{dateLabel[lang]}: {article.author}
+							{authorLabel[lang]}: {article.author}
 						</span>
 					</div>
 				</motion.div>

@@ -36,9 +36,11 @@ function Footer({ lang }) {
 		>
 			<div className="footer-language-counter-container">
 				<LanguageButton lang={lang} />
-				<p id="articles-count">
-					{counter[lang]}: {articlesDisplayedTotal}
-				</p>
+				{!!articlesDisplayedTotal && (
+					<p id="articles-count">
+						{counter[lang]}: {articlesDisplayedTotal}
+					</p>
+				)}
 				{countryData.status === "error" && (
 					<p id="error">
 						{errorLabel[lang]}: {countryData.message}
