@@ -8,34 +8,35 @@
 	max-width: 80vw;
 	gap: 1rem;
 }
+.article-modal p {
+	text-align: center;
+}
+
+#title {
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
 .article-photo {
 	width: clamp(150px, 60vw, 350px);
 	border-radius: 5px;
 	border: 1px solid white;
 }
+
 .article-content {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 }
-.article-content > * {
-	text-align: center;
-}
-
-#title {
-	text-transform: uppercase;
-}
 #description {
 	font-size: 0.9rem;
-	font-style: italic;
+	font-weight: 100;
 }
 #author {
 	font-size: 0.7rem;
 }
 
 #url {
-	background-color: aliceblue;
 	border-radius: 5px;
 	overflow: hidden;
 	transition: ease-in 0.15s;

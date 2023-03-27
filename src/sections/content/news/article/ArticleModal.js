@@ -21,13 +21,13 @@ function ArticleModal({
 	return (
 		<Popup isOpen={isOpen} onClose={onClose}>
 			<div className="article-modal">
+				<p id="title">{data.title}</p>
 				<img
 					src={data.urlToImage || Placeholder}
 					alt="Article"
 					className="article-photo"
 				/>
 				<div className="article-content">
-					<p id="title">{data.title}</p>
 					{data.description && <p id="description">{data.description}</p>}
 					<p id="author">
 						{authorLabel[lang]}: {data.author}
