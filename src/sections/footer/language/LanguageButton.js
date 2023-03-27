@@ -3,10 +3,10 @@ import { toggleStoredLanguage } from "../../../utils/setLocalStorage";
 import "./LanguageButton.css";
 
 function LanguageButton({ lang }) {
-	const [label, setLabel] = useState(lang.toUpperCase());
-
 	const langs = ["pl", "en"];
 	const secondLang = langs.filter((ln) => ln !== lang);
+
+	const [label, setLabel] = useState(secondLang[0].toUpperCase());
 
 	function toggleLanguageHandler() {
 		const currentLang = toggleStoredLanguage();
