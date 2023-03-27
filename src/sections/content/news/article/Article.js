@@ -12,10 +12,6 @@ function Article({ article, index = 1, lang }) {
 	const { currentLayout } = useSelector((state) => state.newsReducer);
 	const { dateLabel, authorLabel } = langData.feed.articleItem;
 
-	useState(() => {
-		console.log(lang);
-	}, [lang]);
-
 	let background = article.urlToImage;
 	if (!article.urlToImage || currentLayout === "list")
 		background = defaultBackground;
