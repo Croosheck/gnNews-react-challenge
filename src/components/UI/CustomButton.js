@@ -2,7 +2,7 @@ import { memo } from "react";
 import "./CustomButton.css";
 import { motion } from "framer-motion";
 
-function CustomButton({ children, onClick, style, testid }) {
+function CustomButton({ children, onClick, style, className, testid }) {
 	const buttonVariants = {
 		hidden: {
 			opacity: 0,
@@ -23,7 +23,7 @@ function CustomButton({ children, onClick, style, testid }) {
 			variants={buttonVariants}
 			initial="hidden"
 			animate="visible"
-			className="custom-button"
+			className={`custom-button ${className}`}
 			onClick={onClick}
 			style={style}
 			data-testid={testid}

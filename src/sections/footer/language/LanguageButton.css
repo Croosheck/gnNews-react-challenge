@@ -1,0 +1,45 @@
+.lang-button-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.lang-button-container > button {
+	border: none;
+	padding: 5px 10px;
+	cursor: pointer;
+	opacity: 0.7;
+	transition: ease 0.1s;
+	background: linear-gradient(135deg, white, grey 70%);
+	color: white;
+	font-weight: 600;
+	text-shadow: 1px 1px 3px hsla(0, 0%, 0%, 0.5);
+}
+@media (width > 500px) {
+	.lang-button-container > button:hover {
+		opacity: 1;
+	}
+
+	.lang-button-container > button::after {
+		content: attr(data-lang-change);
+		color: black;
+		position: absolute;
+		bottom: 100%;
+		font-weight: 100;
+		font-size: 0.9rem;
+		background-color: white;
+		padding: 5px 10px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 2px solid black;
+
+		display: none;
+	}
+
+	.lang-button-container > button:hover::after {
+		display: block;
+	}
+}

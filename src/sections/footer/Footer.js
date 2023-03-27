@@ -3,9 +3,12 @@ import { useSelector } from "react-redux";
 import Clock from "./clock/Clock";
 import { memo } from "react";
 import { motion } from "framer-motion";
+import LanguageButton from "./language/LanguageButton";
+import { langData } from "../../appConfig";
 
-function Footer() {
+function Footer({ lang }) {
 	const { countryData } = useSelector((state) => state.newsReducer);
+	const { counter, errorLabel } = langData.footer;
 
 	const articlesDisplayedTotal = countryData.articles?.length;
 
@@ -31,10 +34,17 @@ function Footer() {
 			initial="hidden"
 			animate="visible"
 		>
-			<p id="articles-count">Articles found: {articlesDisplayedTotal}</p>
-			{countryData.status === "error" && (
-				<p id="error">Error: {countryData.message}</p>
-			)}
+			<div className="footer-language-counter-container">
+				<LanguageButton lang={lang} />
+				<p id="articles-count">
+					{counter[lang]}: {articlesDisplayedTotal}
+				</p>
+				{countryData.status === "error" && (
+					<p id="error">
+						{errorLabel[lang]}: {countryData.message}
+					</p>
+				)}
+			</div>
 			<Clock />
 		</motion.footer>
 	);

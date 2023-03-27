@@ -3,8 +3,11 @@ import Lottie from "react-lottie";
 import animationData from "../assets/lottie/main-globe.json";
 import { motion } from "framer-motion";
 import { memo } from "react";
+import { langData } from "../appConfig";
 
-function Main({ callback }) {
+function Main({ callback, lang }) {
+	const { title, buttonLabel } = langData.hero;
+
 	const lottieOptions = {
 		loop: true,
 		autoplay: true,
@@ -67,7 +70,7 @@ function Main({ callback }) {
 	return (
 		<div className="main">
 			<motion.h1 variants={titleVariants} initial="hidden" animate="visible">
-				We bring the news, you bring the coffee.
+				{title[lang]}
 			</motion.h1>
 			<motion.button
 				variants={buttonVariants}
@@ -75,7 +78,7 @@ function Main({ callback }) {
 				animate="visible"
 				onClick={exploreHandler}
 			>
-				Explore
+				{buttonLabel[lang]}
 			</motion.button>
 			<motion.div
 				variants={lottieVariants}

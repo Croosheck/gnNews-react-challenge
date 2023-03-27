@@ -8,14 +8,17 @@ import { memo, useEffect, useState } from "react";
 import { DUMMY_ARTICLES } from "../../../appConfig";
 import { AnimatePresence, motion } from "framer-motion";
 import { getFailedCountryName } from "./reusable";
+import { langData } from "../../../appConfig";
 
-function Feed() {
+function Feed({ lang }) {
 	const [requestFailed, setRequestFailed] = useState({
 		isFailed: false,
 		country: "",
 	});
 	const { id } = useParams();
 	const dispatch = useDispatch();
+
+	const { noArticles, forWord } = langData.feed.warning;
 
 	useEffect(() => {
 		async function showArticlesHandler() {
@@ -67,8 +70,9 @@ function Feed() {
 				>
 					{
 						<h2 id="country-failed">
-							No articles has been found{" "}
-							{requestFailed.country && `for ${requestFailed.country}`}
+							{noArticles[lang]}{" "}
+							{requestFailed.country &&
+								`${forWord[lang]}: ${requestFailed.country}`}
 						</h2>
 					}
 				</motion.div>
@@ -88,7 +92,7 @@ function Feed() {
 				}`}
 			>
 				{countryData.articles?.map((article, i) => {
-					return <Article key={i} index={i} article={article} />;
+					return <Article key={i} index={i} article={article} lang={lang} />;
 				})}
 			</motion.div>
 		</AnimatePresence>

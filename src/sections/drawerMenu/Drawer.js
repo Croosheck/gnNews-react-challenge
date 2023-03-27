@@ -11,36 +11,12 @@ import { setCountryData } from "../../redux/slice";
 import { getArticlesData } from "../../utils/getArticlesData";
 import { DUMMY_ARTICLES } from "../../appConfig";
 import { memo } from "react";
+import { langData } from "../../appConfig";
 
-const DUMMY_COUNTRIES = [
-	{
-		name: "Germany",
-		short: "de",
-	},
-	{
-		name: "USA",
-		short: "us",
-	},
-	{
-		name: "United Kingdom",
-		short: "gb",
-	},
-	{
-		name: "Poland",
-		short: "pl",
-	},
-	{
-		name: "Czech Republic",
-		short: "cz",
-	},
-	{
-		name: "China",
-		short: "cn",
-	},
-];
-
-function Drawer({ isOpened, onCloseClick, callback }) {
+function Drawer({ isOpened, onCloseClick, callback, lang }) {
 	const dispatch = useDispatch();
+
+	const { countries } = langData.drawer;
 
 	const drawerVariants = {
 		hidden: {
@@ -156,7 +132,7 @@ function Drawer({ isOpened, onCloseClick, callback }) {
 							/>
 						</motion.div>
 						<div className="countries-list">
-							{DUMMY_COUNTRIES.map((country, i) => {
+							{countries[lang].map((country, i) => {
 								return (
 									<NavLink to={`/country/${country.short}`} key={i}>
 										<Option

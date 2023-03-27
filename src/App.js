@@ -8,13 +8,17 @@ import Header from "./sections/header/Header";
 import CustomButton from "./components/UI/CustomButton";
 import Drawer from "./sections/drawerMenu/Drawer";
 import Feed from "./sections/content/news/Feed";
-import Country from "./sections/content/news/article/Article";
+import Article from "./sections/content/news/article/Article";
 import { useDispatch } from "react-redux";
 import { changeLayout } from "./redux/slice";
+
 import { TfiLayoutGrid4Alt, TfiLayoutMenuV } from "react-icons/tfi";
 import { HiCursorClick } from "react-icons/hi";
+
 import Footer from "./sections/footer/Footer";
 import { toggleLayout } from "./utils/setLocalStorage";
+
+import { langData } from "./appConfig";
 
 function App() {
 	const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -23,6 +27,9 @@ function App() {
 	const [logo, setLogo] = useState("gnNews");
 
 	const dispatch = useDispatch();
+	const appLang = localStorage.getItem("lang") || "en";
+
+	const { logoPrompt } = langData.other;
 
 	useEffect(() => {
 		const storedLayout = localStorage.getItem("layout");
@@ -62,7 +69,7 @@ function App() {
 	}
 
 	function changeLogoHandler() {
-		const newLogo = prompt("Type something short!");
+		const newLogo = prompt(logoPrompt[appLang]);
 		if (newLogo === null) return;
 		setLogo(newLogo);
 	}
@@ -74,21 +81,23 @@ function App() {
 				onClose={togglePopupHandler}
 				content={true}
 				testid="header-popup"
+				lang={appLang}
 			/>
 
 			<Drawer
 				isOpened={isMenuOpen}
 				onCloseClick={toggleDrawerHandler}
 				callback={() => setIsMenuOpen(false)}
+				lang={appLang}
 			/>
 
-			<Header title={logo} onBurgerClick={toggleDrawerHandler}>
+			<Header title={logo} onBurgerClick={toggleDrawerHandler} lang={appLang}>
 				<CustomButton
 					onClick={changeLogoHandler}
 					style={{
-						display: window.innerWidth < 500 && "none",
 						width: "30%",
 					}}
+					className="hidden"
 				>
 					LOGO
 				</CustomButton>
@@ -102,14 +111,14 @@ function App() {
 				<Route path="/*" element={<Navigate replace to="/main" />} />
 				<Route
 					path="/main"
-					element={<Main callback={() => setIsMenuOpen(true)} />}
+					element={<Main lang={appLang} callback={() => setIsMenuOpen(true)} />}
 				/>
-				<Route path="/country/" element={<Feed />}>
-					<Route path=":id" element={<Country />} />
+				<Route path="/country/" element={<Feed lang={appLang} />}>
+					<Route path=":id" element={<Article lang={appLang} />} />
 				</Route>
 			</Routes>
 
-			<Footer />
+			<Footer lang={appLang} />
 		</div>
 	);
 }

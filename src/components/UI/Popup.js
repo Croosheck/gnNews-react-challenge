@@ -1,9 +1,16 @@
 import { memo, useEffect, useRef, useState } from "react";
 import "./Popup.css";
 import { AnimatePresence, motion } from "framer-motion";
-import { POPUP_PROS_CONS } from "../../appConfig";
+import { POPUP_PROS_CONS, langData } from "../../appConfig";
 
-function Popup({ isOpen = false, onClose, content = "", children, testid }) {
+function Popup({
+	isOpen = false,
+	onClose,
+	content = "",
+	children,
+	testid,
+	lang,
+}) {
 	const [popupContent, setPopupContent] = useState();
 	const [option, setOption] = useState();
 	const constraintsRef = useRef();
@@ -11,7 +18,7 @@ function Popup({ isOpen = false, onClose, content = "", children, testid }) {
 	useEffect(() => {
 		if (!content) return;
 
-		setPopupContent(POPUP_PROS_CONS.default);
+		setPopupContent(langData.popup.default[lang]);
 		setOption();
 	}, [isOpen, content]);
 
@@ -69,8 +76,8 @@ function Popup({ isOpen = false, onClose, content = "", children, testid }) {
 	function popupContentHandler(type) {
 		setOption(type);
 
-		if (type === "bad") setPopupContent(POPUP_PROS_CONS.cons.content);
-		if (type === "good") setPopupContent(POPUP_PROS_CONS.pros.content);
+		if (type === "bad") setPopupContent(langData.popup.cons[lang]);
+		if (type === "good") setPopupContent(langData.popup.pros[lang]);
 	}
 
 	return (

@@ -8,6 +8,12 @@
 
 	position: fixed;
 	bottom: 0;
+	padding-inline: 2px;
+}
+.footer-language-counter-container {
+	display: flex;
+	gap: 1rem;
+	margin-left: 0.5rem;
 }
 footer > * {
 	text-align: center;

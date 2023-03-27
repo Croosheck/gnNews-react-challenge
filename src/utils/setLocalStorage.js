@@ -31,3 +31,16 @@ export function toggleLayout({
 
 	return setLayout;
 }
+
+export function toggleStoredLanguage(toggleData = ["pl", "en"]) {
+	const storedLang = localStorage.getItem("lang");
+
+	if (storedLang) {
+		const switchTo = toggleData.filter((lang) => lang !== storedLang);
+		localStorage.setItem("lang", switchTo[0]);
+		return switchTo[0];
+	}
+
+	localStorage.setItem("lang", toggleData[0]);
+	return toggleData[0];
+}

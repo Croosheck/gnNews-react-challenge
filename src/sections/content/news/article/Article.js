@@ -5,10 +5,16 @@ import { useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
 import ArticleModal from "./ArticleModal";
 import { memo, useState } from "react";
+import { langData } from "../../../../appConfig";
 
-function Article({ article, index = 1 }) {
+function Article({ article, index = 1, lang }) {
 	const [openArticle, setOpenArticle] = useState(false);
 	const { currentLayout } = useSelector((state) => state.newsReducer);
+	const { dateLabel, authorLabel } = langData.feed.articleItem;
+
+	useState(() => {
+		console.log(lang);
+	}, [lang]);
 
 	let background = article.urlToImage;
 	if (!article.urlToImage || currentLayout === "list")
@@ -44,6 +50,7 @@ function Article({ article, index = 1 }) {
 				isOpen={openArticle}
 				data={article}
 				onClose={toggleArticleHandler}
+				lang={lang}
 			/>
 			<AnimatePresence key={currentLayout}>
 				<motion.div
@@ -69,9 +76,11 @@ function Article({ article, index = 1 }) {
 					>
 						<span className="article--title">{article.title}</span>
 						<span className="article--publish-date">
-							Published at: {formatDate(article.publishedAt)}
+							{authorLabel[lang]}: {formatDate(article.publishedAt)}
 						</span>
-						<span className="article--source">By: {article.author}</span>
+						<span className="article--source">
+							{dateLabel[lang]}: {article.author}
+						</span>
 					</div>
 				</motion.div>
 			</AnimatePresence>
