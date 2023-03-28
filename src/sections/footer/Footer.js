@@ -21,7 +21,7 @@ function Footer({ lang }) {
 			y: 0,
 			transition: {
 				duration: 0.8,
-				delay: 2.5,
+				delay: 2,
 			},
 		},
 	};
