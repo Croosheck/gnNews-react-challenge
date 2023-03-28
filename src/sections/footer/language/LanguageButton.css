@@ -3,7 +3,9 @@
 	justify-content: center;
 	align-items: center;
 	box-sizing: border-box;
-	position: relative;
+	position: sticky;
+	top: 0;
+	right: 0;
 }
 
 .lang-button-container > button {
@@ -26,7 +28,8 @@
 		content: attr(data-lang-change);
 		color: black;
 		position: absolute;
-		bottom: 100%;
+		top: 200%;
+		right: 0%;
 		font-weight: 100;
 		font-size: 0.9rem;
 		background-color: white;

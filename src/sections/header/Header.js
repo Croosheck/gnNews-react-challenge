@@ -5,8 +5,9 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { setCountryData } from "../../redux/slice";
+import LanguageButton from "../footer/language/LanguageButton";
 
-function Header({ children, title, onBurgerClick }) {
+function Header({ children, title, onBurgerClick, lang }) {
 	const dispatch = useDispatch();
 
 	const titleVariants = {
@@ -68,7 +69,10 @@ function Header({ children, title, onBurgerClick }) {
 					<span role="generic">{title}</span>
 				</motion.div>
 			</NavLink>
-			<ul className="navbar-nav">{children}</ul>
+			<ul className="navbar-nav">
+				{children}
+				<LanguageButton lang={lang} />
+			</ul>
 		</nav>
 	);
 }

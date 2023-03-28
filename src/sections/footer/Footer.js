@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import Clock from "./clock/Clock";
 import { memo } from "react";
 import { motion } from "framer-motion";
-import LanguageButton from "./language/LanguageButton";
 import { langData } from "../../appConfig";
 
 function Footer({ lang }) {
@@ -35,7 +34,6 @@ function Footer({ lang }) {
 			animate="visible"
 		>
 			<div className="footer-language-counter-container">
-				<LanguageButton lang={lang} />
 				{!!articlesDisplayedTotal && (
 					<p id="articles-count">
 						{counter[lang]}: {articlesDisplayedTotal}
