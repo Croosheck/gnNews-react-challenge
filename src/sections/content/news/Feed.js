@@ -22,6 +22,7 @@ function Feed({ lang }) {
 
 	useEffect(() => {
 		async function showArticlesHandler() {
+			window.scrollTo(0, 0);
 			const data = await getArticlesData(id);
 
 			//gets the country's name, for which the articles data hasn't been able to fetch
