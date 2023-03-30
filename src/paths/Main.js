@@ -77,6 +77,7 @@ function Main({ callback, lang }) {
 				initial="hidden"
 				animate="visible"
 				onClick={exploreHandler}
+				data-testid="button-main"
 			>
 				{buttonLabel[lang]}
 			</motion.button>

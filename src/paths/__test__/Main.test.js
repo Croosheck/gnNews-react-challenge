@@ -33,7 +33,7 @@ describe("elements appearance after the animations has been completed", () => {
 
 	test("button animation should appear after 1.5 seconds (1500ms) of the delay being set", async () => {
 		render(<MockMain />);
-		const mainButton = screen.getByRole("button", { name: /explore/i });
+		const mainButton = screen.getByTestId("button-main");
 
 		expect(mainButton).not.toBeVisible();
 
